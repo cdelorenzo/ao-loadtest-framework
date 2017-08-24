@@ -37,6 +37,10 @@ def git_pull():
     run('cd /home/centos/ao-client-pubnub && git pull', pty=False)
 
 @parallel
+def start_network_monitor(arg):
+    run('nohup sh -c \'while true; do ./network_monitor.sh; sleep 5; done\' &', pty=False)
+
+@parallel
 def free():
     run('free -m', pty=False)
 
